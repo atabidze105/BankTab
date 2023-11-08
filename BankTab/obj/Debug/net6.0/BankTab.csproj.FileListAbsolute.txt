@@ -1,0 +1,15 @@
+C:\Users\prdb\Desktop\IsayProjects\BankTab\bin\Debug\net6.0\BankTab.exe
+C:\Users\prdb\Desktop\IsayProjects\BankTab\bin\Debug\net6.0\BankTab.deps.json
+C:\Users\prdb\Desktop\IsayProjects\BankTab\bin\Debug\net6.0\BankTab.runtimeconfig.json
+C:\Users\prdb\Desktop\IsayProjects\BankTab\bin\Debug\net6.0\BankTab.dll
+C:\Users\prdb\Desktop\IsayProjects\BankTab\bin\Debug\net6.0\BankTab.pdb
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.csproj.AssemblyReference.cache
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.AssemblyInfoInputs.cache
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.AssemblyInfo.cs
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.csproj.CoreCompileInputs.cache
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.dll
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\refint\BankTab.dll
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.pdb
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\BankTab.genruntimeconfig.cache
+C:\Users\prdb\Desktop\IsayProjects\BankTab\obj\Debug\net6.0\ref\BankTab.dll
