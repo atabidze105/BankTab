@@ -19,16 +19,16 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("Ошибка. Введите значение в заданом диапазоне.\n");
+                        Console.WriteLine("\nОшибка. Введите значение в заданом диапазоне.\n");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Ошибка. Введите значение в заданом диапазоне.\n");
+                    Console.WriteLine("\nОшибка. Введите значение в заданом диапазоне.\n");
                 }
             }
         }
-        
+
         Console.WriteLine("Чтобы начать работу, необходимо задать количество счетов.\nВведите количество аккаунтов, которое хотите создать:\n");
         int quantityOfAccounts = Convert.ToInt32(Console.ReadLine());
         Bank[] accounts = new Bank[quantityOfAccounts];
@@ -38,7 +38,7 @@ class Program
         }
 
         accountChoshing(accounts, quantityOfAccounts); //Первое обращение к методу        
-        
+
         Console.WriteLine("\nЧтобы вернуться к выбору аккаунта, нажмите \"Enter\".\nЧтобы выйти напишите что-нибудь и нажмите \"Enter\".\n");
         string thisAccount = ""; //Переменная для поддержания работы следующего цикла
         thisAccount = Console.ReadLine();

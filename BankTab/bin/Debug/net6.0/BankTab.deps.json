@@ -7,19 +7,8 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "BankTab/1.0.0": {
-        "dependencies": {
-          "BankTabLib": "1.0.0.0"
-        },
         "runtime": {
           "BankTab.dll": {}
-        }
-      },
-      "BankTabLib/1.0.0.0": {
-        "runtime": {
-          "BankTabLib.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
         }
       }
     }
@@ -27,11 +16,6 @@
   "libraries": {
     "BankTab/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "BankTabLib/1.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
