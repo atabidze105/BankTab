@@ -12,7 +12,6 @@ namespace BankTab
         private string _name;//ФИО пользователя
         private float _sum = 0;//Сумма на счету
         private float _transaction; //Поле для пополнения счет
-        private int _nomTransaction;
 
         private void accountOpening(int nom, string name, float sum) //Открытие счета
         {
@@ -24,7 +23,7 @@ namespace BankTab
 
         private void displayInfo() //Вывод информации
         {
-            Console.WriteLine($"Номер счета: {_nom}.\nИмя клиента: {_name}.\nСумма денег на счету: {_sum}.\n");
+            Console.WriteLine($"Номер счета: {_nom}.\nИмя клиента: {_name}.\nСумма денег на счету: {_sum}.");
         }
 
         private void replenishment(float sum)//Пополнение счета
@@ -96,7 +95,7 @@ namespace BankTab
 
         public void callCenter(Bank[] banks) //Метод для обращения к другим методам
         {
-
+            
             while (_nom == null || _name == "")
             {
                 Console.WriteLine("\nНеобходимо открыть счет чтобы продолжить.\nВведите номер счета:");
@@ -105,7 +104,7 @@ namespace BankTab
                 string accName = Console.ReadLine();
                 Console.WriteLine("Введите сумму денег на счету:");
                 float accMoney = float.Parse(Console.ReadLine());
-                foreach (Bank bank in banks) //Проверка на уникальность номера
+                foreach (Bank bank in  banks) //Проверка на уникальность номера
                 {
                     if (accNumber == bank._nom)
                     {
@@ -114,9 +113,9 @@ namespace BankTab
                         break;
                     }
                 }
-                if (accNumber == null || accName == "" || accMoney <= 0) //Условие не позволяет создать аккаунт с пустым номером и именем
+                if (accNumber == null || accName == "") //Условие не позволяет создать аккаунт с пустым номером и именем
                 {
-                    Console.WriteLine("\nНевозможно создать аккаунт. Данные введены некорректно.");
+                    Console.WriteLine("Невозможно создать аккаунт. Данные введены некорректно.\n");
                 }
                 else
                 {
@@ -131,11 +130,12 @@ namespace BankTab
                 do
                 {
                     Console.WriteLine(" Чтобы узнать информацию о счете, выберите \"1\".\n Чтобы пополнить счет, выберите \"2\".\n Чтобы снять сумму со счета, выберите \"3\".\n Чтобы обнулить счет, выберите \"4\".\n Чтобы перевести деньги на другой счет, выберите \"5\".\n");
-                    string option =Console.ReadLine();
+                    string option = Console.ReadLine();
 
                     switch (option)//Выбор операции
                     {
                         case "1": //Вывод информации
+                            Console.WriteLine("\n");
                             displayInfo();
                             break;
                         case "2": //Пополнение
@@ -152,10 +152,10 @@ namespace BankTab
                             break;
                         case "5": //Перевод
                             Console.WriteLine("\nВведите номер счета, на который хотите совершить перевод:");
-                            _nomTransaction = Convert.ToInt32(Console.ReadLine());
-                            if (_nomTransaction != _nom)
+                            int nomTransaction = Convert.ToInt32(Console.ReadLine());
+                            if (nomTransaction != _nom)
                             {
-                                transaction(searchingByID(banks, _nomTransaction));
+                                transaction(searchingByID(banks, nomTransaction));
                             }
                             else
                             {
@@ -166,11 +166,11 @@ namespace BankTab
                             Console.WriteLine("\nВведено некорректное значение.\n ");
                             break;
                     }
-                    Console.WriteLine("Чтобы продолжить, нажмите \"Enter\".\nЧтобы выйти, напишите что-нибудь и нажмите \"Enter\".\n");
+                    Console.WriteLine("Чтобы продолжить, нажмите \"Enter\".\nЧтобы выйти, напишите что-нибудь и нажмите \"Enter\".");
                     continuation = Console.ReadLine();
                 } while (continuation == "");
             }
-
+            
         }
     }
 

@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Bank.cs~RF63a51215.TMP" />
+    <Reference Include="BankTabLib">
+      <HintPath>..\BankTabLib\bin\Debug\net6.0\BankTabLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

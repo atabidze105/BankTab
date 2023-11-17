@@ -11,26 +11,30 @@ class Program
             {
                 Console.WriteLine($"Введите один из доступных номеров:\n\nот 1 до {quantity}:\n");
                 nom = Convert.ToInt32(Console.ReadLine()); //Выбор индекса элемента массива
-                if (nom > 0)
+                if (nom > 0 && nom <= banks.Length)
                 {
-                    if (nom <= banks.Length)
-                    {
-                        banks[nom - 1].callCenter(banks);
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nОшибка. Введите значение в заданом диапазоне.\n");
-                    }
+                    banks[nom - 1].callCenter(banks);
                 }
                 else
                 {
-                    Console.WriteLine("\nОшибка. Введите значение в заданом диапазоне.\n");
+                    Console.WriteLine("Ошибка. Введите значение в заданом диапазоне.\n");
                 }
             }
         }
+        
+        Console.WriteLine("Чтобы начать работу, необходимо задать количество счетов.");
 
-        Console.WriteLine("Чтобы начать работу, необходимо задать количество счетов.\nВведите количество аккаунтов, которое хотите создать:\n");
-        int quantityOfAccounts = Convert.ToInt32(Console.ReadLine());
+        int quantityOfAccounts = 0;
+        while (quantityOfAccounts <= 0)
+        {
+            Console.WriteLine("Введите количество аккаунтов, которое хотите создать:\n");
+            quantityOfAccounts = Convert.ToInt32(Console.ReadLine());
+            if (quantityOfAccounts <= 0)
+            {
+                Console.WriteLine("\nВведите значение больше нуля\n");
+                quantityOfAccounts = 0;
+            }
+        }
         Bank[] accounts = new Bank[quantityOfAccounts];
         for (int i = 0; i < accounts.Length; i++) //Цикл для создания элементов массива
         {
@@ -38,7 +42,7 @@ class Program
         }
 
         accountChoshing(accounts, quantityOfAccounts); //Первое обращение к методу        
-
+        
         Console.WriteLine("\nЧтобы вернуться к выбору аккаунта, нажмите \"Enter\".\nЧтобы выйти напишите что-нибудь и нажмите \"Enter\".\n");
         string thisAccount = ""; //Переменная для поддержания работы следующего цикла
         thisAccount = Console.ReadLine();
