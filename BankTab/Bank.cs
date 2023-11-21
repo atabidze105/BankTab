@@ -11,7 +11,6 @@ namespace BankTab
         private int? _nom;//Номер счета пользователя
         private string _name;//ФИО пользователя
         private float _sum = 0;//Сумма на счету
-        private float _transaction; //Поле для пополнения счет
 
         private void accountOpening(int nom, string name, float sum) //Открытие счета
         {
@@ -28,20 +27,27 @@ namespace BankTab
 
         private void replenishment(float sum)//Пополнение счета
         {
-            _sum += sum; //Пополнение счета
-            Console.WriteLine($"Пополнение завершено успешно. Текущая сумма на счету: {_sum}.");
+            if (sum > 0)
+            {
+                _sum += sum; //Пополнение счета
+                Console.WriteLine($"Пополнение завершено успешно. Текущая сумма на счету: {_sum}.");
+            }
+            else
+            {
+                Console.WriteLine("Невозможно пополнить счет на отрицательное значение.");
+            }
         }
 
         private void withdrawal(float sum)//Снятие средств со счета
         {
-            if (sum <= _sum)//Если снимаемая сумма не превышает счет, то она снимается
+            if (sum <= _sum && sum > 0)//Если снимаемая сумма не превышает счет и больше нуля, то она снимается
             {
                 _sum -= sum;//Снятие средств со счета
                 Console.WriteLine($"Снятие завершено успешно. Текущая сумма на счету: {_sum}.");
             }
             else
             {
-                Console.WriteLine("Невозможно снять со счета сумму большую, чем сам счет.");
+                Console.WriteLine("Введено отрицательное значение или значение большее, чем сам счет.");
             }
         }
 
@@ -63,16 +69,16 @@ namespace BankTab
             if (bank != null)//Проверка на наличие объекта-адресата
             {
                 Console.WriteLine($"Введите сумму, которую хотите перевести со счета {_nom} на счет {bank._nom}:");
-                _transaction = float.Parse(Console.ReadLine());
-                if (_transaction <= _sum)//Если снимаемая сумма не превышает счет, то она снимается
+                float transaction = float.Parse(Console.ReadLine());
+                if (transaction <= _sum && transaction > 0)//Если снимаемая сумма не превышает счет и не роавна нулю, то она снимается
                 {
-                    _sum -= _transaction;//Снятие средств со счета отправителя
-                    bank._sum += _transaction; //Пополнение счета адресата
+                    _sum -= transaction;//Снятие средств со счета отправителя
+                    bank._sum += transaction; //Пополнение счета адресата
                     Console.WriteLine("Транзакция успешно завершена.");
                 }
                 else
                 {
-                    Console.WriteLine("Недостаточно средств на счете отправителя.");
+                    Console.WriteLine("Недостаточно средств на счету отправителя или введено отрицательное значение.");
                 }
             }
             else
@@ -125,7 +131,7 @@ namespace BankTab
 
             if (_nom != null || _name != "")
             {
-                Console.WriteLine($"\nДобро пожаловать в личный кабинет, {_name}!\nКакой услугой Вы бы хотели воспользоваться?\n\n");
+                Console.WriteLine($"\nДобро пожаловать в личный кабинет, {_name}!\nКакой услугой Вы бы хотели воспользоваться?\n");
                 string continuation; //Пока строка пуста, выполняется следующий цикл
                 do
                 {
@@ -159,14 +165,14 @@ namespace BankTab
                             }
                             else
                             {
-                                Console.WriteLine("\nНевозможно перевести средства на свой же счет.\n");
+                                Console.WriteLine("\nНевозможно перевести средства на свой же счет.");
                             }
                             break;
                         default:
-                            Console.WriteLine("\nВведено некорректное значение.\n ");
+                            Console.WriteLine("\nВыбранной услуги не существует.");
                             break;
                     }
-                    Console.WriteLine("Чтобы продолжить, нажмите \"Enter\".\nЧтобы выйти, напишите что-нибудь и нажмите \"Enter\".");
+                    Console.WriteLine("\nЧтобы продолжить, нажмите \"Enter\".\nЧтобы выйти, напишите что-нибудь и нажмите \"Enter\".");
                     continuation = Console.ReadLine();
                 } while (continuation == "");
             }
